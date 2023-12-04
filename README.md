@@ -6,4 +6,4 @@ https://adventofcode.com/2023
 |-----|--------------------------------------|--------|
 |  01 | Python                               | Solved |
 |  02 | Python                               | Solved |
-|  03 | Python                               | Part 1 |
+|  03 | Python                               | Solved |
