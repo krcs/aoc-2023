@@ -106,3 +106,4 @@ for pair in pairs:
     result += prod
 
 print("Result:", result)
+
