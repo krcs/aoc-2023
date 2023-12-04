@@ -29,7 +29,7 @@ Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
 Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
 Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
 
-lines = test.split('\n')
+#lines = test.split('\n')
 
 def get_parsed_data(lines):
     result = {}
@@ -60,13 +60,19 @@ for card in cards:
                 counter += 1
     wins[int(card)] = counter
 
-result = []
+copies = []
 
+for w in wins:
+    copies.append(w)
 
-for i in list(wins.keys()):
-    result.append(i)
-    copy = list(range(i+1, wins[i]+2))
-    result += copy
-    break
+    for n in copies:
+        if n != w:
+            continue
+        copies += list(range(w+1, wins[w]+w+1))
 
-print(result)
+result = {}
+
+for num in copies:
+    result[num]=result.get(num,0)+1
+
+print(sum(result.values()))
