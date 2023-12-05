@@ -8,3 +8,4 @@ https://adventofcode.com/2023
 |  02 | Python                               | Solved |
 |  03 | Python                               | Solved |
 |  04 | Python                               | Solved |
+|  05 | Python                               | Part 1 |
