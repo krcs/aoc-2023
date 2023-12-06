@@ -103,32 +103,34 @@ for idx in range(0,len(seeds),2):
     s.append([seeds[idx], seeds[idx]+seeds[idx+1]])
 
 seed_ranges = sorted(s, key=lambda e: e[0])
+
+###
+
+low_location = sys.maxint
 for r in seed_ranges:
-    print(r)
+    seed = r[0]
+    while seed <= r[1]:
+        stack = [seed]
+        for c in categories:
+            current_value = stack[-1]
+            test = False
+            d = current_value
+            for line in categories[c]:
+                source_start = line[1]
+                source_end = line[1]+line[2]-1
 
+                destination_start = line[0]
+                destination_end = line[0]+line[2]-1
 
-#low_location = sys.maxint
-#for seed in seeds:
-#    stack = [seed]
-#    for c in categories:
-#        current_value = stack[-1]
-#        test = False
-#        d = current_value
-#        for line in categories[c]:
-#            source_start = line[1]
-#            source_end = line[1]+line[2]-1
-#
-#            destination_start = line[0]
-#            destination_end = line[0]+line[2]-1
-#
-#            offset = current_value - source_start
-#            if current_value >= source_start and current_value <= source_end:
-#                d = destination_start+offset
-#
-#        stack.append(d)
-#    if stack[-1] < low_location:
-#        low_location = stack[-1]
-#
-#print(low_location)
+                offset = current_value - source_start
+                if current_value >= source_start and current_value <= source_end:
+                    d = destination_start+offset
+
+            stack.append(d)
+        if stack[-1] < low_location:
+            low_location = stack[-1]
+        seed += 1
+
+print(low_location)
 
 
